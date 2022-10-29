@@ -1,12 +1,26 @@
-# The following lines of boilerplate have to be in your project's CMakeLists
-# in this exact order for cmake to work correctly
-cmake_minimum_required(VERSION 3.5)
+set(component_srcs "fontx.c"
+	"ili9225.c"
+	"ili9320.c"
+	"ili9325.c"
+	"ili9327.c"
+	"ili9341.c"
+	"ili9342.c"
+	"ili9481.c"
+	"ili9486.c"
+	"ili9488.c"
+	"lcd_com.c"
+	"lcd_lib.c"
+	"lgdp4532.c"
+	"r61509.c"
+	"st7781.c"
+	"s6d1121.c"
+	"hx8347.c"
+	"i2s_lcd_esp32_driver.c"
+	"i2s_lcd_esp32s2_driver.c"
+    "8080_lcd_esp32s3.c"
+	)
 
-include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(parallel-tft)
-
-# Create a SPIFFS image from the contents of the 'font' directory
-# that fits the partition named 'storage'. FLASH_IN_PROJECT indicates that
-# the generated image should be flashed when the entire project is flashed to
-# the target with 'idf.py -p PORT flash
-spiffs_create_partition_image(storage font FLASH_IN_PROJECT)
+idf_component_register(SRCS "${component_srcs}"
+                       PRIV_REQUIRES driver
+                       PRIV_REQUIRES esp_adc_cal
+                       INCLUDE_DIRS "tft_library")

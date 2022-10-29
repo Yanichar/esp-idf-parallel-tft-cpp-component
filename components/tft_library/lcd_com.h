@@ -69,6 +69,10 @@ typedef struct {
 	int16_t _max_yc; // Maximum y coordinate
 } TFT_t;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void gpio_digital_write(int GPIO_PIN, uint8_t data);
 void gpio_lcd_write_data(int dummy1, unsigned char *data, size_t size);
 void reg_lcd_write_data(int dummy1, unsigned char *data, size_t size);
@@ -95,5 +99,9 @@ int touch_gety(TFT_t * dev);
 int touch_getz(TFT_t * dev);
 void touch_getxyz(TFT_t * dev, int *xp, int *yp, int *zp);
 bool touch_getxy(TFT_t *dev, int *xp, int *yp);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

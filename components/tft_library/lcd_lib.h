@@ -35,6 +35,10 @@ But GCC 10.2.1 don't have cooperative definition, so error occurs.
 	#define DECLARE
 #endif
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 // Controller-dependent function
 DECLARE void (*DrawPixel)(TFT_t * dev, uint16_t x, uint16_t y, uint16_t color);
 DECLARE void (*DrawMultiPixels)(TFT_t * dev, uint16_t x, uint16_t y, uint16_t size, uint16_t * colors);
@@ -83,6 +87,10 @@ void lcdSetFontFill(TFT_t * dev, uint16_t color);
 void lcdUnsetFontFill(TFT_t * dev);
 void lcdSetFontUnderLine(TFT_t * dev, uint16_t color);
 void lcdUnsetFontUnderLine(TFT_t * dev);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 

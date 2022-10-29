@@ -3,6 +3,10 @@
 #include "stdbool.h"
 #define FontxGlyphBufSize (32*32/8)
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct {
 	const char *path;
 	char  fxname[10];
@@ -30,6 +34,10 @@ void ReversBitmap(uint8_t *line, uint8_t w, uint8_t h);
 void ShowFont(uint8_t *fonts, uint8_t pw, uint8_t ph);
 void ShowBitmap(uint8_t *bitmap, uint8_t pw, uint8_t ph);
 uint8_t RotateByte(uint8_t ch);
+
+#ifdef __cplusplus
+}
+#endif
 
 // UTF8 to SJIS table
 // https://www.mgo-tec.com/blog-entry-utf8sjis01.html

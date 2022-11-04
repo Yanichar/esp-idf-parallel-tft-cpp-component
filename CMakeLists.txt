@@ -23,4 +23,4 @@ set(component_srcs "fontx.c"
 idf_component_register(SRCS "${component_srcs}"
                        PRIV_REQUIRES driver
                        PRIV_REQUIRES esp_adc_cal
-                       INCLUDE_DIRS "tft_library")
+                       INCLUDE_DIRS .)
